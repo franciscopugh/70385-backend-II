@@ -8,6 +8,8 @@ import passport from 'passport'
 import initalizatePassport from './config/passport.config.js'
 import MongoStore from 'connect-mongo'
 import sessionRouter from './routes/sessions.routes.js'
+import productRouter from './routes/products.routes.js'
+import cartRouter from './routes/carts.routes.js'
 import mongoose from 'mongoose'
 
 const app = express()
@@ -45,6 +47,9 @@ app.set('views', path.join(__dirname, 'views')) //Concateno evitando erroes de /
 //Rutas
 app.use('/public', express.static(__dirname + '/public')) //Concateno rutas
 app.use('/api/sessions', sessionRouter)
+app.use('/api/products', productRouter)
+app.use('/api/carts', cartRouter)
+
 app.get('/', (req,res) => {
     res.status(200).send("Hola desde Inicio")
 })

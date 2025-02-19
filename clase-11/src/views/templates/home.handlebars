@@ -1,0 +1,37 @@
+<div class="container mt-5">
+    <h1>Productos</h1>
+    <div class="row">
+        {{#each prods.docs}}
+        <div class="col-md-4 mb-4">
+            <div class="card h-80 shadows-md">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                    <p class="card-text">{{this.description}}</p>
+                    <p class="card-text">${{this.price}}</p>
+                    <a href="/api/products/{{this._id}}">Ver Producto</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <!-- Paginacion -->
+    <nav aria-label="Page Navigation">
+        <ul class="pagination justify-content-center">
+            {{#if prods.hasPrevPage}}
+            <li class="page-item">
+                <a class="page-link" href="?page={{prods.prevPage}}&limit={{prods.limit}}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+            </li>
+            {{/if}}
+            {{#each prods.pageNumbers}}
+            <li class="page-item {{#if this.isCurrent}}active {{/if}}">
+                <a class="page-link" href="?page={{this.number}}&limit={{prods.limit}}">{{this.number}}</a>
+            </li>
+            {{/each}}
+            {{#if prods.hasNextPage}}
+            <li class="page-item">
+                <a class="page-link" href="?page={{prods.nextPage}}&limit={{prods.limit}}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+            </li>
+            {{/if}}
+        </ul>
+    </nav>
+</div>

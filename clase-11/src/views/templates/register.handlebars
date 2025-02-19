@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-center align-items-center vh-120">
+    <div class="card p-4 shadow-sm cardRegister">
+        <h2 class="text-center">Register</h2>
+            <form action="/api/sessions/register" id="registerForm" method="post">
+                <div class="mb-3">
+                    <label for="first_name" class="form-label">First Name</label>
+                    <input type="text" class="form-control" name="first_name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="last_name" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" name="last_name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" class="form-control" name="age" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                    Registrarme
+                </button>
+            </form>
+            <div class="text-center mt-3">
+                    <a href="/api/sessions/viewlogin">¿Ya posee una cuenta? Inicie Sesion</a>
+            </div>
+    </div>
+</div>
